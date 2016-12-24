@@ -27,3 +27,7 @@ gradle-app.setting
 java-harshed.ipr
 java-harshed.iws
 
+# Loging
+*.log
+
+/out/
