@@ -1,4 +1,4 @@
-package com.electronicpanopticon.harshed.example;
+package com.electronicpanopticon.potemkin.example;
 
 import org.immutables.value.Value;
 

@@ -1,7 +1,7 @@
-package com.electronicpanopticon.harshed;
+package com.electronicpanopticon.potemkin;
 
-import com.electronicpanopticon.harshed.example.Example;
-import com.electronicpanopticon.harshed.example.ImmutableExample;
+import com.electronicpanopticon.potemkin.example.Example;
+import com.electronicpanopticon.potemkin.example.ImmutableExample;
 
 /**
  * Created by chris on 12/4/16.

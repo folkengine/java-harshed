@@ -1,4 +1,4 @@
-package com.electronicpanopticon.harshed.example;
+package com.electronicpanopticon.potemkin.example;
 
 import java.util.ArrayList;
 import java.util.List;
