@@ -11,6 +11,7 @@ repositories {
     mavenCentral()
 }
 
+ext.daggerVersion        = '2.8'
 ext.igniteVersion        = '1.8.0'
 ext.immutablesVersion    = '2.3.9'
 ext.jacksonVersion       = '2.8.4'
@@ -54,6 +55,7 @@ junitPlatform {
 dependencies {
     compile group: 'com.fasterxml.jackson.core',     name: 'jackson-databind',      version: jacksonVersion
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: jacksonVersion
+    compile group: 'com.google.dagger',              name: 'dagger',                version: daggerVersion
     compile group: 'org.apache.ignite',              name: 'ignite-core',           version: igniteVersion
     compile group: 'org.apache.ignite',              name: 'ignite-indexing',       version: igniteVersion
     compile group: 'org.apache.logging.log4j',       name: 'log4j-api',             version: log4jVersion
