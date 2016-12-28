@@ -16,3 +16,9 @@ This project has the following test dependencies:
 * [JUnit5](http://junit.org/junit5/)
 * [Immutables](https://immutables.github.io/)
 
+# IntellliJ Idea Setup
+
+This project uses Immutables in order to generate test example code. In order for it to compile correctly inside IntelliJ Idea 
+you will need to enable annotation processing. Be sure to set the "Store generated sources relative to" flag to "Module Content Root".
+ 
+![Annotation Processors Setting](docs/img/idea-immutables-config.png)

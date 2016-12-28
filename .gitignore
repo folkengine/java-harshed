@@ -24,8 +24,8 @@ gradle-app.setting
 # IntelliJ
 
 .idea/
-java-harshed.ipr
-java-harshed.iws
+*.ipr
+*.iws
 
 # Loging
 *.log

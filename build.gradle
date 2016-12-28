@@ -24,6 +24,9 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
 idea {
     module {
         testSourceDirs += file('src/test/generated_tests')
@@ -33,7 +36,7 @@ idea {
 }
 
 jar {
-    baseName = 'java-harshed'
+    baseName = 'potemkin'
     version = '0.0.1-SNAPSHOT'
 }
 

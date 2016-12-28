@@ -1,5 +1,8 @@
 package com.electronicpanopticon.potemkin.example;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +34,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code firstName} attribute
    */
+  @JsonProperty("firstName")
   @Override
   public String firstName() {
     return firstName;
@@ -39,6 +43,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code lastName} attribute
    */
+  @JsonProperty("lastName")
   @Override
   public String lastName() {
     return lastName;
@@ -47,6 +52,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code age} attribute
    */
+  @JsonProperty("age")
   @Override
   public int age() {
     return age;
@@ -55,6 +61,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code height} attribute
    */
+  @JsonProperty("height")
   @Override
   public double height() {
     return height;
@@ -63,6 +70,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code weight} attribute
    */
+  @JsonProperty("weight")
   @Override
   public double weight() {
     return weight;
@@ -175,6 +183,83 @@ public final class ImmutableExample extends Example {
   }
 
   /**
+   * Utility type used to correctly read immutable object from JSON representation.
+   * @deprecated Do not use this type directly, it exists only for the <em>Jackson</em>-binding infrastructure
+   */
+  @Deprecated
+  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+  static final class Json extends Example {
+    String firstName;
+    String lastName;
+    int age;
+    boolean ageIsSet;
+    double height;
+    boolean heightIsSet;
+    double weight;
+    boolean weightIsSet;
+    @JsonProperty("firstName")
+    public void setFirstName(String firstName) {
+      this.firstName = firstName;
+    }
+    @JsonProperty("lastName")
+    public void setLastName(String lastName) {
+      this.lastName = lastName;
+    }
+    @JsonProperty("age")
+    public void setAge(int age) {
+      this.age = age;
+      this.ageIsSet = true;
+    }
+    @JsonProperty("height")
+    public void setHeight(double height) {
+      this.height = height;
+      this.heightIsSet = true;
+    }
+    @JsonProperty("weight")
+    public void setWeight(double weight) {
+      this.weight = weight;
+      this.weightIsSet = true;
+    }
+    @Override
+    public String firstName() { throw new UnsupportedOperationException(); }
+    @Override
+    public String lastName() { throw new UnsupportedOperationException(); }
+    @Override
+    public int age() { throw new UnsupportedOperationException(); }
+    @Override
+    public double height() { throw new UnsupportedOperationException(); }
+    @Override
+    public double weight() { throw new UnsupportedOperationException(); }
+  }
+
+  /**
+   * @param json A JSON-bindable data structure
+   * @return An immutable value type
+   * @deprecated Do not use this method directly, it exists only for the <em>Jackson</em>-binding infrastructure
+   */
+  @Deprecated
+  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+  static ImmutableExample fromJson(Json json) {
+    ImmutableExample.Builder builder = ImmutableExample.builder();
+    if (json.firstName != null) {
+      builder.firstName(json.firstName);
+    }
+    if (json.lastName != null) {
+      builder.lastName(json.lastName);
+    }
+    if (json.ageIsSet) {
+      builder.age(json.age);
+    }
+    if (json.heightIsSet) {
+      builder.height(json.height);
+    }
+    if (json.weightIsSet) {
+      builder.weight(json.weight);
+    }
+    return builder.build();
+  }
+
+  /**
    * Creates an immutable copy of a {@link Example} value.
    * Uses accessors to get values to initialize the new immutable instance.
    * If an instance is already immutable, it is returned as is.
@@ -244,6 +329,7 @@ public final class ImmutableExample extends Example {
      * @param firstName The value for firstName 
      * @return {@code this} builder for use in a chained invocation
      */
+    @JsonProperty("firstName")
     public final Builder firstName(String firstName) {
       this.firstName = Objects.requireNonNull(firstName, "firstName");
       initBits &= ~INIT_BIT_FIRST_NAME;
@@ -255,6 +341,7 @@ public final class ImmutableExample extends Example {
      * @param lastName The value for lastName 
      * @return {@code this} builder for use in a chained invocation
      */
+    @JsonProperty("lastName")
     public final Builder lastName(String lastName) {
       this.lastName = Objects.requireNonNull(lastName, "lastName");
       initBits &= ~INIT_BIT_LAST_NAME;
@@ -266,6 +353,7 @@ public final class ImmutableExample extends Example {
      * @param age The value for age 
      * @return {@code this} builder for use in a chained invocation
      */
+    @JsonProperty("age")
     public final Builder age(int age) {
       this.age = age;
       initBits &= ~INIT_BIT_AGE;
@@ -277,6 +365,7 @@ public final class ImmutableExample extends Example {
      * @param height The value for height 
      * @return {@code this} builder for use in a chained invocation
      */
+    @JsonProperty("height")
     public final Builder height(double height) {
       this.height = height;
       initBits &= ~INIT_BIT_HEIGHT;
@@ -288,6 +377,7 @@ public final class ImmutableExample extends Example {
      * @param weight The value for weight 
      * @return {@code this} builder for use in a chained invocation
      */
+    @JsonProperty("weight")
     public final Builder weight(double weight) {
       this.weight = weight;
       initBits &= ~INIT_BIT_WEIGHT;
