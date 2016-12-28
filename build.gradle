@@ -12,6 +12,7 @@ repositories {
 }
 
 ext.daggerVersion        = '2.8'
+ext.fakerVersion         = '0.12'
 ext.igniteVersion        = '1.8.0'
 ext.immutablesVersion    = '2.3.9'
 ext.jacksonVersion       = '2.8.4'
@@ -22,6 +23,14 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.junit.platform.gradle.plugin'
+
+idea {
+    module {
+        testSourceDirs += file('src/test/generated_tests')
+        downloadJavadoc = false
+        downloadSources = true
+    }
+}
 
 jar {
     baseName = 'java-harshed'
@@ -43,7 +52,7 @@ junitPlatform {
         }
         tags {
             // include 'fast'
-            exclude 'slow'
+            // exclude 'slow'
         }
         // includeClassNamePattern '.*Test'
     }
@@ -61,6 +70,7 @@ dependencies {
     compile group: 'org.apache.logging.log4j',       name: 'log4j-api',             version: log4jVersion
     compile group: 'org.apache.logging.log4j',       name: 'log4j-core',            version: log4jVersion
 
+    testCompile group: 'com.github.javafaker',       name: 'javafaker',             version: fakerVersion
     testCompile group: 'org.immutables',             name: 'value',                 version: immutablesVersion
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitJupiterVersion
     testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitJupiterVersion

@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/folkengine/java-harshed.svg?branch=master)](https://travis-ci.org/folkengine/java-harshed)
 
+Named after [Prince Grigory Aleksandrovich Potemkin-Tavricheski](https://en.wikipedia.org/wiki/Grigory_Potemkin)'s [villages](https://en.wikipedia.org/wiki/Potemkin_village).
+
 # Dependencies
 
 * [Dagger2](https://google.github.io/dagger/)
