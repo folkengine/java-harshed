@@ -17,18 +17,35 @@ import javax.annotation.Generated;
 @SuppressWarnings({"all"})
 @Generated({"Immutables.generator", "Example"})
 public final class ImmutableExample extends Example {
+  private final String id;
   private final String firstName;
   private final String lastName;
   private final int age;
   private final double height;
   private final double weight;
 
-  private ImmutableExample(String firstName, String lastName, int age, double height, double weight) {
+  private ImmutableExample(
+      String id,
+      String firstName,
+      String lastName,
+      int age,
+      double height,
+      double weight) {
+    this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
     this.height = height;
     this.weight = weight;
+  }
+
+  /**
+   * @return The value of the {@code id} attribute
+   */
+  @JsonProperty("id")
+  @Override
+  public String id() {
+    return id;
   }
 
   /**
@@ -77,6 +94,18 @@ public final class ImmutableExample extends Example {
   }
 
   /**
+   * Copy the current immutable object by setting a value for the {@link Example#id() id} attribute.
+   * An equals check used to prevent copying of the same value by returning {@code this}.
+   * @param value A new value for id
+   * @return A modified copy of the {@code this} object
+   */
+  public final ImmutableExample withId(String value) {
+    if (this.id.equals(value)) return this;
+    String newValue = Objects.requireNonNull(value, "id");
+    return new ImmutableExample(newValue, this.firstName, this.lastName, this.age, this.height, this.weight);
+  }
+
+  /**
    * Copy the current immutable object by setting a value for the {@link Example#firstName() firstName} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for firstName
@@ -85,7 +114,7 @@ public final class ImmutableExample extends Example {
   public final ImmutableExample withFirstName(String value) {
     if (this.firstName.equals(value)) return this;
     String newValue = Objects.requireNonNull(value, "firstName");
-    return new ImmutableExample(newValue, this.lastName, this.age, this.height, this.weight);
+    return new ImmutableExample(this.id, newValue, this.lastName, this.age, this.height, this.weight);
   }
 
   /**
@@ -97,7 +126,7 @@ public final class ImmutableExample extends Example {
   public final ImmutableExample withLastName(String value) {
     if (this.lastName.equals(value)) return this;
     String newValue = Objects.requireNonNull(value, "lastName");
-    return new ImmutableExample(this.firstName, newValue, this.age, this.height, this.weight);
+    return new ImmutableExample(this.id, this.firstName, newValue, this.age, this.height, this.weight);
   }
 
   /**
@@ -108,7 +137,7 @@ public final class ImmutableExample extends Example {
    */
   public final ImmutableExample withAge(int value) {
     if (this.age == value) return this;
-    return new ImmutableExample(this.firstName, this.lastName, value, this.height, this.weight);
+    return new ImmutableExample(this.id, this.firstName, this.lastName, value, this.height, this.weight);
   }
 
   /**
@@ -119,7 +148,7 @@ public final class ImmutableExample extends Example {
    */
   public final ImmutableExample withHeight(double value) {
     if (Double.doubleToLongBits(this.height) == Double.doubleToLongBits(value)) return this;
-    return new ImmutableExample(this.firstName, this.lastName, this.age, value, this.weight);
+    return new ImmutableExample(this.id, this.firstName, this.lastName, this.age, value, this.weight);
   }
 
   /**
@@ -130,7 +159,7 @@ public final class ImmutableExample extends Example {
    */
   public final ImmutableExample withWeight(double value) {
     if (Double.doubleToLongBits(this.weight) == Double.doubleToLongBits(value)) return this;
-    return new ImmutableExample(this.firstName, this.lastName, this.age, this.height, value);
+    return new ImmutableExample(this.id, this.firstName, this.lastName, this.age, this.height, value);
   }
 
   /**
@@ -145,7 +174,8 @@ public final class ImmutableExample extends Example {
   }
 
   private boolean equalTo(ImmutableExample another) {
-    return firstName.equals(another.firstName)
+    return id.equals(another.id)
+        && firstName.equals(another.firstName)
         && lastName.equals(another.lastName)
         && age == another.age
         && Double.doubleToLongBits(height) == Double.doubleToLongBits(another.height)
@@ -153,12 +183,13 @@ public final class ImmutableExample extends Example {
   }
 
   /**
-   * Computes a hash code from attributes: {@code firstName}, {@code lastName}, {@code age}, {@code height}, {@code weight}.
+   * Computes a hash code from attributes: {@code id}, {@code firstName}, {@code lastName}, {@code age}, {@code height}, {@code weight}.
    * @return hashCode value
    */
   @Override
   public int hashCode() {
     int h = 31;
+    h = h * 17 + id.hashCode();
     h = h * 17 + firstName.hashCode();
     h = h * 17 + lastName.hashCode();
     h = h * 17 + age;
@@ -174,7 +205,8 @@ public final class ImmutableExample extends Example {
   @Override
   public String toString() {
     return "Example{"
-        + "firstName=" + firstName
+        + "id=" + id
+        + ", firstName=" + firstName
         + ", lastName=" + lastName
         + ", age=" + age
         + ", height=" + height
@@ -189,6 +221,7 @@ public final class ImmutableExample extends Example {
   @Deprecated
   @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
   static final class Json extends Example {
+    String id;
     String firstName;
     String lastName;
     int age;
@@ -197,6 +230,10 @@ public final class ImmutableExample extends Example {
     boolean heightIsSet;
     double weight;
     boolean weightIsSet;
+    @JsonProperty("id")
+    public void setId(String id) {
+      this.id = id;
+    }
     @JsonProperty("firstName")
     public void setFirstName(String firstName) {
       this.firstName = firstName;
@@ -221,6 +258,8 @@ public final class ImmutableExample extends Example {
       this.weightIsSet = true;
     }
     @Override
+    public String id() { throw new UnsupportedOperationException(); }
+    @Override
     public String firstName() { throw new UnsupportedOperationException(); }
     @Override
     public String lastName() { throw new UnsupportedOperationException(); }
@@ -241,6 +280,9 @@ public final class ImmutableExample extends Example {
   @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
   static ImmutableExample fromJson(Json json) {
     ImmutableExample.Builder builder = ImmutableExample.builder();
+    if (json.id != null) {
+      builder.id(json.id);
+    }
     if (json.firstName != null) {
       builder.firstName(json.firstName);
     }
@@ -291,13 +333,15 @@ public final class ImmutableExample extends Example {
    * but instead used immediately to create instances.</em>
    */
   public static final class Builder {
-    private static final long INIT_BIT_FIRST_NAME = 0x1L;
-    private static final long INIT_BIT_LAST_NAME = 0x2L;
-    private static final long INIT_BIT_AGE = 0x4L;
-    private static final long INIT_BIT_HEIGHT = 0x8L;
-    private static final long INIT_BIT_WEIGHT = 0x10L;
-    private long initBits = 0x1fL;
+    private static final long INIT_BIT_ID = 0x1L;
+    private static final long INIT_BIT_FIRST_NAME = 0x2L;
+    private static final long INIT_BIT_LAST_NAME = 0x4L;
+    private static final long INIT_BIT_AGE = 0x8L;
+    private static final long INIT_BIT_HEIGHT = 0x10L;
+    private static final long INIT_BIT_WEIGHT = 0x20L;
+    private long initBits = 0x3fL;
 
+    private String id;
     private String firstName;
     private String lastName;
     private int age;
@@ -316,11 +360,24 @@ public final class ImmutableExample extends Example {
      */
     public final Builder from(Example instance) {
       Objects.requireNonNull(instance, "instance");
+      id(instance.id());
       firstName(instance.firstName());
       lastName(instance.lastName());
       age(instance.age());
       height(instance.height());
       weight(instance.weight());
+      return this;
+    }
+
+    /**
+     * Initializes the value for the {@link Example#id() id} attribute.
+     * @param id The value for id 
+     * @return {@code this} builder for use in a chained invocation
+     */
+    @JsonProperty("id")
+    public final Builder id(String id) {
+      this.id = Objects.requireNonNull(id, "id");
+      initBits &= ~INIT_BIT_ID;
       return this;
     }
 
@@ -393,11 +450,12 @@ public final class ImmutableExample extends Example {
       if (initBits != 0) {
         throw new IllegalStateException(formatRequiredAttributesMessage());
       }
-      return new ImmutableExample(firstName, lastName, age, height, weight);
+      return new ImmutableExample(id, firstName, lastName, age, height, weight);
     }
 
     private String formatRequiredAttributesMessage() {
       List<String> attributes = new ArrayList<String>();
+      if ((initBits & INIT_BIT_ID) != 0) attributes.add("id");
       if ((initBits & INIT_BIT_FIRST_NAME) != 0) attributes.add("firstName");
       if ((initBits & INIT_BIT_LAST_NAME) != 0) attributes.add("lastName");
       if ((initBits & INIT_BIT_AGE) != 0) attributes.add("age");

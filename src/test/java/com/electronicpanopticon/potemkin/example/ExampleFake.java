@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,6 +17,7 @@ public final class ExampleFake {
         Faker faker = new Faker(new Random());
 
         return ImmutableExample.builder()
+                .id(UUID.randomUUID().toString())
                 .age(faker.number().numberBetween(18, 70))
                 .firstName(faker.name().firstName())
                 .height(faker.number().randomDouble(1, 150, 220))

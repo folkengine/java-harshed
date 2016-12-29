@@ -6,6 +6,7 @@ Named after [Prince Grigory Aleksandrovich Potemkin-Tavricheski](https://en.wiki
 
 # Dependencies
 
+* [Jackson](http://wiki.fasterxml.com/JacksonHome)
 * [Dagger2](https://google.github.io/dagger/)
 * [Apache Ignite's HDFS](https://ignite.apache.org/use-cases/hadoop/hdfs-cache) (Optional)
 

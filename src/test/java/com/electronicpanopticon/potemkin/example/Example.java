@@ -7,6 +7,7 @@ import org.immutables.value.Value;
 @JsonSerialize
 @Value.Immutable
 public abstract class Example {
+    public abstract String id();
     public abstract String firstName();
     public abstract String lastName();
     public abstract int age();
