@@ -15,6 +15,7 @@ This project has the following test dependencies:
 
 * [JUnit5](http://junit.org/junit5/)
 * [Immutables](https://immutables.github.io/)
+* [Java Faker](https://github.com/DiUS/java-faker)
 
 # IntellliJ Idea Setup
 
