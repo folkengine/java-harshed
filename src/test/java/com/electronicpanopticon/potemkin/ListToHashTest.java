@@ -10,7 +10,7 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 /**
  * Created by chris on 12/4/16.
  */
-public class ArrayToHashTest {
+public class ListToHashTest {
 
     public static void main(String... args) throws JsonProcessingException {
         Example ex = ImmutableExample.builder().age(19).firstName("Joe").height(6.2).lastName("Bob").weight(254.2).build();
