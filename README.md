@@ -1,5 +1,7 @@
 # Potemkin Faking Library
 
+🏢🏠🏠⛪🏠🏢🏦🏠🏠🏠🏦⛪🏠🏠🏠
+
 [![Build Status](https://travis-ci.org/folkengine/potemkin.svg?branch=master)](https://travis-ci.org/folkengine/potemkin)
 
 Named after [Prince Grigory Aleksandrovich Potemkin-Tavricheski](https://en.wikipedia.org/wiki/Grigory_Potemkin)'s [villages](https://en.wikipedia.org/wiki/Potemkin_village).
