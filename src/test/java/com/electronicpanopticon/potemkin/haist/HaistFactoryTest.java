@@ -1,8 +1,6 @@
 package com.electronicpanopticon.potemkin.haist;
 
 import com.electronicpanopticon.potemkin.example.ImmutableExample;
-import com.electronicpanopticon.potemkin.haist.Haist;
-import com.electronicpanopticon.potemkin.haist.HaistFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

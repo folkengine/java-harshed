@@ -1,12 +1,9 @@
+
 package com.electronicpanopticon.potemkin.example;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import javax.annotation.Generated;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.Double;
 
 /**
  * Immutable implementation of {@link Example}.
@@ -15,19 +12,19 @@ import javax.annotation.Generated;
  * {@code ImmutableExample.builder()}.
  */
 @SuppressWarnings({"all"})
-@Generated({"Immutables.generator", "Example"})
-public final class ImmutableExample extends Example {
-  private final String id;
-  private final String firstName;
-  private final String lastName;
+@javax.annotation.Generated({"Immutables.generator", "Example"})
+public final class ImmutableExample extends com.electronicpanopticon.potemkin.example.Example {
+  private final java.lang.String id;
+  private final java.lang.String firstName;
+  private final java.lang.String lastName;
   private final int age;
   private final double height;
   private final double weight;
 
   private ImmutableExample(
-      String id,
-      String firstName,
-      String lastName,
+      java.lang.String id,
+      java.lang.String firstName,
+      java.lang.String lastName,
       int age,
       double height,
       double weight) {
@@ -42,34 +39,34 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code id} attribute
    */
-  @JsonProperty("id")
+  @com.fasterxml.jackson.annotation.JsonProperty("id")
   @Override
-  public String id() {
+  public java.lang.String id() {
     return id;
   }
 
   /**
    * @return The value of the {@code firstName} attribute
    */
-  @JsonProperty("firstName")
+  @com.fasterxml.jackson.annotation.JsonProperty("firstName")
   @Override
-  public String firstName() {
+  public java.lang.String firstName() {
     return firstName;
   }
 
   /**
    * @return The value of the {@code lastName} attribute
    */
-  @JsonProperty("lastName")
+  @com.fasterxml.jackson.annotation.JsonProperty("lastName")
   @Override
-  public String lastName() {
+  public java.lang.String lastName() {
     return lastName;
   }
 
   /**
    * @return The value of the {@code age} attribute
    */
-  @JsonProperty("age")
+  @com.fasterxml.jackson.annotation.JsonProperty("age")
   @Override
   public int age() {
     return age;
@@ -78,7 +75,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code height} attribute
    */
-  @JsonProperty("height")
+  @com.fasterxml.jackson.annotation.JsonProperty("height")
   @Override
   public double height() {
     return height;
@@ -87,7 +84,7 @@ public final class ImmutableExample extends Example {
   /**
    * @return The value of the {@code weight} attribute
    */
-  @JsonProperty("weight")
+  @com.fasterxml.jackson.annotation.JsonProperty("weight")
   @Override
   public double weight() {
     return weight;
@@ -99,9 +96,9 @@ public final class ImmutableExample extends Example {
    * @param value A new value for id
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableExample withId(String value) {
+  public final ImmutableExample withId(java.lang.String value) {
     if (this.id.equals(value)) return this;
-    String newValue = Objects.requireNonNull(value, "id");
+    java.lang.String newValue = com.google.common.base.Preconditions.checkNotNull(value, "id");
     return new ImmutableExample(newValue, this.firstName, this.lastName, this.age, this.height, this.weight);
   }
 
@@ -111,9 +108,9 @@ public final class ImmutableExample extends Example {
    * @param value A new value for firstName
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableExample withFirstName(String value) {
+  public final ImmutableExample withFirstName(java.lang.String value) {
     if (this.firstName.equals(value)) return this;
-    String newValue = Objects.requireNonNull(value, "firstName");
+    java.lang.String newValue = com.google.common.base.Preconditions.checkNotNull(value, "firstName");
     return new ImmutableExample(this.id, newValue, this.lastName, this.age, this.height, this.weight);
   }
 
@@ -123,9 +120,9 @@ public final class ImmutableExample extends Example {
    * @param value A new value for lastName
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableExample withLastName(String value) {
+  public final ImmutableExample withLastName(java.lang.String value) {
     if (this.lastName.equals(value)) return this;
-    String newValue = Objects.requireNonNull(value, "lastName");
+    java.lang.String newValue = com.google.common.base.Preconditions.checkNotNull(value, "lastName");
     return new ImmutableExample(this.id, this.firstName, newValue, this.age, this.height, this.weight);
   }
 
@@ -193,8 +190,8 @@ public final class ImmutableExample extends Example {
     h = h * 17 + firstName.hashCode();
     h = h * 17 + lastName.hashCode();
     h = h * 17 + age;
-    h = h * 17 + Double.hashCode(height);
-    h = h * 17 + Double.hashCode(weight);
+    h = h * 17 + com.google.common.primitives.Doubles.hashCode(height);
+    h = h * 17 + com.google.common.primitives.Doubles.hashCode(weight);
     return h;
   }
 
@@ -204,14 +201,15 @@ public final class ImmutableExample extends Example {
    */
   @Override
   public String toString() {
-    return "Example{"
-        + "id=" + id
-        + ", firstName=" + firstName
-        + ", lastName=" + lastName
-        + ", age=" + age
-        + ", height=" + height
-        + ", weight=" + weight
-        + "}";
+    return com.google.common.base.MoreObjects.toStringHelper("Example")
+        .omitNullValues()
+        .add("id", id)
+        .add("firstName", firstName)
+        .add("lastName", lastName)
+        .add("age", age)
+        .add("height", height)
+        .add("weight", weight)
+        .toString();
   }
 
   /**
@@ -219,50 +217,50 @@ public final class ImmutableExample extends Example {
    * @deprecated Do not use this type directly, it exists only for the <em>Jackson</em>-binding infrastructure
    */
   @Deprecated
-  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
-  static final class Json extends Example {
-    String id;
-    String firstName;
-    String lastName;
+  @com.fasterxml.jackson.annotation.JsonAutoDetect(fieldVisibility = com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE)
+  static final class Json extends com.electronicpanopticon.potemkin.example.Example {
+    java.lang.String id;
+    java.lang.String firstName;
+    java.lang.String lastName;
     int age;
     boolean ageIsSet;
     double height;
     boolean heightIsSet;
     double weight;
     boolean weightIsSet;
-    @JsonProperty("id")
-    public void setId(String id) {
+    @com.fasterxml.jackson.annotation.JsonProperty("id")
+    public void setId(java.lang.String id) {
       this.id = id;
     }
-    @JsonProperty("firstName")
-    public void setFirstName(String firstName) {
+    @com.fasterxml.jackson.annotation.JsonProperty("firstName")
+    public void setFirstName(java.lang.String firstName) {
       this.firstName = firstName;
     }
-    @JsonProperty("lastName")
-    public void setLastName(String lastName) {
+    @com.fasterxml.jackson.annotation.JsonProperty("lastName")
+    public void setLastName(java.lang.String lastName) {
       this.lastName = lastName;
     }
-    @JsonProperty("age")
+    @com.fasterxml.jackson.annotation.JsonProperty("age")
     public void setAge(int age) {
       this.age = age;
       this.ageIsSet = true;
     }
-    @JsonProperty("height")
+    @com.fasterxml.jackson.annotation.JsonProperty("height")
     public void setHeight(double height) {
       this.height = height;
       this.heightIsSet = true;
     }
-    @JsonProperty("weight")
+    @com.fasterxml.jackson.annotation.JsonProperty("weight")
     public void setWeight(double weight) {
       this.weight = weight;
       this.weightIsSet = true;
     }
     @Override
-    public String id() { throw new UnsupportedOperationException(); }
+    public java.lang.String id() { throw new UnsupportedOperationException(); }
     @Override
-    public String firstName() { throw new UnsupportedOperationException(); }
+    public java.lang.String firstName() { throw new UnsupportedOperationException(); }
     @Override
-    public String lastName() { throw new UnsupportedOperationException(); }
+    public java.lang.String lastName() { throw new UnsupportedOperationException(); }
     @Override
     public int age() { throw new UnsupportedOperationException(); }
     @Override
@@ -277,7 +275,7 @@ public final class ImmutableExample extends Example {
    * @deprecated Do not use this method directly, it exists only for the <em>Jackson</em>-binding infrastructure
    */
   @Deprecated
-  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+  @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)
   static ImmutableExample fromJson(Json json) {
     ImmutableExample.Builder builder = ImmutableExample.builder();
     if (json.id != null) {
@@ -341,9 +339,9 @@ public final class ImmutableExample extends Example {
     private static final long INIT_BIT_WEIGHT = 0x20L;
     private long initBits = 0x3fL;
 
-    private String id;
-    private String firstName;
-    private String lastName;
+    private java.lang.String id;
+    private java.lang.String firstName;
+    private java.lang.String lastName;
     private int age;
     private double height;
     private double weight;
@@ -359,7 +357,7 @@ public final class ImmutableExample extends Example {
      * @return {@code this} builder for use in a chained invocation
      */
     public final Builder from(Example instance) {
-      Objects.requireNonNull(instance, "instance");
+      com.google.common.base.Preconditions.checkNotNull(instance, "instance");
       id(instance.id());
       firstName(instance.firstName());
       lastName(instance.lastName());
@@ -374,9 +372,9 @@ public final class ImmutableExample extends Example {
      * @param id The value for id 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("id")
-    public final Builder id(String id) {
-      this.id = Objects.requireNonNull(id, "id");
+    @com.fasterxml.jackson.annotation.JsonProperty("id")
+    public final Builder id(java.lang.String id) {
+      this.id = com.google.common.base.Preconditions.checkNotNull(id, "id");
       initBits &= ~INIT_BIT_ID;
       return this;
     }
@@ -386,9 +384,9 @@ public final class ImmutableExample extends Example {
      * @param firstName The value for firstName 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("firstName")
-    public final Builder firstName(String firstName) {
-      this.firstName = Objects.requireNonNull(firstName, "firstName");
+    @com.fasterxml.jackson.annotation.JsonProperty("firstName")
+    public final Builder firstName(java.lang.String firstName) {
+      this.firstName = com.google.common.base.Preconditions.checkNotNull(firstName, "firstName");
       initBits &= ~INIT_BIT_FIRST_NAME;
       return this;
     }
@@ -398,9 +396,9 @@ public final class ImmutableExample extends Example {
      * @param lastName The value for lastName 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("lastName")
-    public final Builder lastName(String lastName) {
-      this.lastName = Objects.requireNonNull(lastName, "lastName");
+    @com.fasterxml.jackson.annotation.JsonProperty("lastName")
+    public final Builder lastName(java.lang.String lastName) {
+      this.lastName = com.google.common.base.Preconditions.checkNotNull(lastName, "lastName");
       initBits &= ~INIT_BIT_LAST_NAME;
       return this;
     }
@@ -410,7 +408,7 @@ public final class ImmutableExample extends Example {
      * @param age The value for age 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("age")
+    @com.fasterxml.jackson.annotation.JsonProperty("age")
     public final Builder age(int age) {
       this.age = age;
       initBits &= ~INIT_BIT_AGE;
@@ -422,7 +420,7 @@ public final class ImmutableExample extends Example {
      * @param height The value for height 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("height")
+    @com.fasterxml.jackson.annotation.JsonProperty("height")
     public final Builder height(double height) {
       this.height = height;
       initBits &= ~INIT_BIT_HEIGHT;
@@ -434,7 +432,7 @@ public final class ImmutableExample extends Example {
      * @param weight The value for weight 
      * @return {@code this} builder for use in a chained invocation
      */
-    @JsonProperty("weight")
+    @com.fasterxml.jackson.annotation.JsonProperty("weight")
     public final Builder weight(double weight) {
       this.weight = weight;
       initBits &= ~INIT_BIT_WEIGHT;
@@ -448,13 +446,13 @@ public final class ImmutableExample extends Example {
      */
     public ImmutableExample build() {
       if (initBits != 0) {
-        throw new IllegalStateException(formatRequiredAttributesMessage());
+        throw new java.lang.IllegalStateException(formatRequiredAttributesMessage());
       }
       return new ImmutableExample(id, firstName, lastName, age, height, weight);
     }
 
     private String formatRequiredAttributesMessage() {
-      List<String> attributes = new ArrayList<String>();
+      java.util.List<String> attributes = com.google.common.collect.Lists.newArrayList();
       if ((initBits & INIT_BIT_ID) != 0) attributes.add("id");
       if ((initBits & INIT_BIT_FIRST_NAME) != 0) attributes.add("firstName");
       if ((initBits & INIT_BIT_LAST_NAME) != 0) attributes.add("lastName");

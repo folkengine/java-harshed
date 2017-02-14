@@ -31,7 +31,12 @@ you will need to enable annotation processing. Be sure to set the "Store generat
  
 ![Annotation Processors Setting](docs/img/idea-immutables-config.png)
 
-## Reading
+## Interesting Reading
 
 * [GSON vs Jackson](http://programmerbruce.blogspot.com/2011/06/gson-v-jackson.html)
 
+## Similar and Related Projects
+
+* [WireMock](https://github.com/tomakehurst/wiremock)
+* [MockHttpServer](https://github.com/kristofa/mock-http-server)
+* [Simple Framework](https://github.com/ngallagher/simpleframework)
